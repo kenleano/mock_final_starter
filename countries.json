@@ -1,0 +1,19 @@
+{
+    "countries": [
+        {
+            "id": 1,
+            "name": "United States",
+            "population": 331142779
+        },
+        {
+            "id": 2,
+            "name": "Spain",
+            "population": 47450795
+        },
+        {
+            "id": 3,
+            "name": "Japan",
+            "population": 125570000
+        }
+    ]
+}
