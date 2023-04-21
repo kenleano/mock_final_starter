@@ -12,9 +12,9 @@
   </div>
 </template>
 <script>
-import axios from "axios";
+//import axios from "axios";
 import CountryDetails from "./CountryDetails.vue";
-
+import CountryDataService from "@/service/CountryDataService";
 export default {
   name: "CountryList",
   components: {
@@ -27,16 +27,26 @@ export default {
     };
   },
   mounted() {
-    axios
-      .get("http://localhost:8080/api/countries")
-      .then((response) => {
-        this.countries = response.data;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    this.getData();
+    // axios
+    //   .get("http://localhost:8080/api/countries")
+    //   .then((response) => {
+    //     this.countries = response.data;
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
   },
   methods: {
+    getData() {
+      CountryDataService.getCountries()
+      .then(response=>{
+        this.countries=response.data;
+      })
+      .catch(error => {
+        console.log(error);
+      })
+    },
     //passes country object as a prop to CountryDetails component
     showDetails(country) {
       this.country = country;
