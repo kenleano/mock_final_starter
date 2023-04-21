@@ -1,11 +1,10 @@
 <template>
   <div>
     <h1>Country List</h1>
-    <ul>
+
       <li className = "countryListLI" v-for="country in countries" :key="country.id" @click="showDetails(country)">
         {{ country.name }}
       </li>
-    </ul>
     <!-- v-if="country" checks if country is empty or not, if null it disappears-->
     <CountryDetails v-if="country" :country="country" @cancel="cancelDetails" />
     
@@ -28,14 +27,6 @@ export default {
   },
   mounted() {
     this.getData();
-    // axios
-    //   .get("http://localhost:8080/api/countries")
-    //   .then((response) => {
-    //     this.countries = response.data;
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
   },
   methods: {
     getData() {
